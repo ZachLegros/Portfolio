@@ -6,6 +6,8 @@ import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
+import BrowserMockup from "@/components/ui/BrowserMockup";
+import ProjectPlaceholder from "@/components/ui/ProjectPlaceholder";
 import { projects } from "@/lib/data";
 
 export default function Projects() {
@@ -28,7 +30,24 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="flex h-full flex-col" glow>
+            <Card className="flex h-full flex-col overflow-hidden" glow>
+              {/* Project Screenshot */}
+              <div className="-mx-6 -mt-6 mb-6">
+                {project.screenshot ? (
+                  <BrowserMockup
+                    src={project.screenshot}
+                    alt={project.screenshotAlt || `${project.name} screenshot`}
+                    url={project.url?.replace(/^https?:\/\//, "")}
+                    priority={index < 2}
+                  />
+                ) : (
+                  <ProjectPlaceholder
+                    projectName={project.name}
+                    technologies={project.technologies}
+                  />
+                )}
+              </div>
+
               {/* Project Header */}
               <div className="mb-4 flex items-start justify-between">
                 <div>

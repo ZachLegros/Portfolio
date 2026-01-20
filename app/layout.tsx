@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
+import Navigation from "@/components/Navigation";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -125,6 +126,7 @@ export default function RootLayout({
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
+          <Navigation />
           <ThemeToggle />
           <div className="noise" aria-hidden="true" />
           {children}

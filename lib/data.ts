@@ -1,3 +1,17 @@
+export interface Project {
+  id: string;
+  name: string;
+  description: string;
+  longDescription?: string;
+  url?: string;
+  github?: string;
+  isFeatured: boolean;
+  features?: string[];
+  technologies: string[];
+  screenshot?: string;
+  screenshotAlt?: string;
+}
+
 export const personalInfo = {
   name: "Zachary Legros",
   title: "Full-Stack Developer",
@@ -111,7 +125,7 @@ export const experience = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: "moondca",
     name: "MoonDCA",
@@ -136,6 +150,9 @@ export const projects = [
       "DynamoDB",
       "Tailwind CSS",
     ],
+    screenshot: "/screenshots/moondca.png",
+    screenshotAlt:
+      "MoonDCA cryptocurrency analytics dashboard showing Bitcoin risk index charts",
   },
   {
     id: "crayobois",
@@ -161,6 +178,9 @@ export const projects = [
       "Stripe",
       "Vercel",
     ],
+    screenshot: "/screenshots/crayobois.png",
+    screenshotAlt:
+      "Crayobois e-commerce website featuring handcrafted wooden pens",
   },
   {
     id: "uottahack",

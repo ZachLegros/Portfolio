@@ -1,7 +1,8 @@
 "use client";
 
 import { forwardRef } from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
+import { useTheme } from "@/components/ThemeProvider";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -30,15 +31,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const { theme } = useTheme();
+    const isLight = theme === "light";
+
     const baseStyles =
       "relative inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-50 disabled:pointer-events-none overflow-hidden";
 
     const variants = {
       primary:
         "bg-gradient-to-r from-primary to-primary-light text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:brightness-110",
-      secondary:
-        "border border-white/10 text-foreground bg-white/5 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]",
-      ghost: "text-foreground-muted hover:text-foreground hover:bg-white/5",
+      secondary: isLight
+        ? "border border-slate-300 text-slate-800 bg-slate-100 hover:bg-slate-200 hover:border-slate-400"
+        : "border border-white/10 text-white bg-white/5 hover:bg-white/10 hover:border-white/20",
+      ghost: isLight
+        ? "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+        : "text-slate-400 hover:text-white hover:bg-white/5",
     };
 
     const sizes = {
