@@ -37,7 +37,7 @@ export default function Experience() {
                 glow={job.isFeatured}
               >
                 {/* Timeline dot */}
-                <div className="bg-primary border-background absolute top-8 -left-[4.5rem] hidden h-4 w-4 rounded-full border-4 md:block" />
+                <div className="bg-primary absolute top-8 -left-[4.5rem] hidden h-4 w-4 rounded-full border-4 border-[var(--color-background)] md:block" />
 
                 <button
                   onClick={() =>
@@ -92,7 +92,7 @@ export default function Experience() {
                     <motion.div
                       animate={{ rotate: expandedId === job.id ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
-                      className="self-start rounded-lg p-2 hover:bg-white/5"
+                      className="hover:bg-card-hover self-start rounded-lg p-2"
                     >
                       <ChevronDown className="text-foreground-muted h-5 w-5" />
                     </motion.div>
@@ -119,7 +119,7 @@ export default function Experience() {
                             {job.achievements.map((achievement, i) => (
                               <div
                                 key={i}
-                                className="rounded-xl border border-white/5 bg-white/5 p-4"
+                                className="border-card-border bg-card rounded-xl border p-4"
                               >
                                 <div className="gradient-text mb-1 text-2xl font-bold">
                                   {achievement.metric}
