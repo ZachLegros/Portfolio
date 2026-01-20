@@ -38,6 +38,7 @@ export default function Projects() {
                     src={project.screenshot}
                     alt={project.screenshotAlt || `${project.name} screenshot`}
                     url={project.url?.replace(/^https?:\/\//, "")}
+                    href={project.url}
                     priority={index < 2}
                   />
                 ) : (

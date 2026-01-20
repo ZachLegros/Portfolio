@@ -4,6 +4,7 @@ interface BrowserMockupProps {
   src: string;
   alt: string;
   url?: string;
+  href?: string;
   priority?: boolean;
 }
 
@@ -11,10 +12,11 @@ export default function BrowserMockup({
   src,
   alt,
   url,
+  href,
   priority = false,
 }: BrowserMockupProps) {
-  return (
-    <div className="browser-mockup">
+  const content = (
+    <div className={`browser-mockup${href ? " cursor-pointer" : ""}`}>
       {/* Browser header */}
       <div className="browser-header">
         <div className="browser-dots">
@@ -38,4 +40,14 @@ export default function BrowserMockup({
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 }

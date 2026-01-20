@@ -509,7 +509,8 @@ body,
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.browser-mockup:hover .browser-content img {
+.browser-mockup:hover .browser-content img,
+a:hover .browser-mockup .browser-content img {
   transform: scale(1.02);
 }
 
