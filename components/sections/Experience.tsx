@@ -1,12 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, MapPin, Calendar, ChevronDown, Award } from "lucide-react";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import { experience } from "@/lib/data";
+
+// Parse **bold** markdown syntax
+function parseHighlight(text: string): React.ReactNode[] {
+  const result: React.ReactNode[] = [];
+  const regex = /\*\*(.+?)\*\*/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
+    }
+    // Add the bold text
+    result.push(
+      <span key={match.index} className="text-foreground font-semibold">
+        {match[1]}
+      </span>
+    );
+    lastIndex = regex.lastIndex;
+  }
+
+  // Add remaining text after last match
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return result;
+}
 
 export default function Experience() {
   const [expandedId, setExpandedId] = useState<string | null>("trend-micro");
@@ -64,30 +93,26 @@ export default function Experience() {
                           {job.company}
                         </span>
                         <span className="flex items-center gap-1.5">
-                          <Calendar className="h-4 w-4" />
-                          {job.period}
-                          {job.duration && (
-                            <span className="text-foreground-muted/60">
-                              ({job.duration})
-                            </span>
-                          )}
-                        </span>
-                        <span className="flex items-center gap-1.5">
                           <MapPin className="h-4 w-4" />
                           {job.location}
                         </span>
                       </div>
-                      {job.internPeriod && (
-                        <p className="text-foreground-muted/70 mt-1 text-sm">
-                          Intern: {job.internPeriod}
-                          {job.internDuration && (
-                            <span className="text-foreground-muted/50">
-                              {" "}
-                              ({job.internDuration})
+                      {/* Timeline: Intern → Full-Time progression */}
+                      <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+                        <Calendar className="text-foreground-muted h-4 w-4" />
+                        {job.internPeriod && (
+                          <>
+                            <span className="bg-accent/10 text-accent rounded-md px-2 py-0.5 font-medium">
+                              Intern: {job.internPeriod} ({job.internDuration})
                             </span>
-                          )}
-                        </p>
-                      )}
+                            <span className="text-foreground-muted/50">→</span>
+                          </>
+                        )}
+                        <span className="bg-primary/10 text-primary rounded-md px-2 py-0.5 font-medium">
+                          {job.internPeriod ? "Full-Time: " : ""}
+                          {job.period} ({job.duration})
+                        </span>
+                      </div>
                     </div>
                     <motion.div
                       animate={{ rotate: expandedId === job.id ? 180 : 0 }}
@@ -142,10 +167,10 @@ export default function Experience() {
                             {job.highlights.map((highlight, i) => (
                               <li
                                 key={i}
-                                className="text-foreground-muted flex items-start gap-3"
+                                className="text-foreground-muted flex items-start gap-3 text-sm"
                               >
-                                <span className="bg-primary mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full" />
-                                <span>{highlight}</span>
+                                <span className="bg-primary mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full" />
+                                <span>{parseHighlight(highlight)}</span>
                               </li>
                             ))}
                           </ul>
