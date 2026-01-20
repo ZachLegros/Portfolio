@@ -51,7 +51,7 @@ export default function Projects() {
               {/* Project Header */}
               <div className="mb-4 flex items-start justify-between">
                 <div>
-                  <h3 className="mb-2 font-[family-name:var(--font-space-grotesk)] text-2xl font-bold">
+                  <h3 className="mb-2 font-[family-name:var(--font-manrope)] text-2xl font-bold">
                     {project.name}
                   </h3>
                   <Badge variant="primary">Featured</Badge>
@@ -147,7 +147,7 @@ export default function Projects() {
             >
               <Card className="h-full">
                 <div className="mb-3 flex items-start justify-between">
-                  <h4 className="font-[family-name:var(--font-space-grotesk)] font-bold">
+                  <h4 className="font-[family-name:var(--font-manrope)] font-bold">
                     {project.name}
                   </h4>
                   <div className="flex gap-2">

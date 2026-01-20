@@ -34,7 +34,7 @@ export default function Education() {
               <GraduationCap className="text-primary h-6 w-6" />
             </div>
             <div>
-              <h3 className="mb-2 font-[family-name:var(--font-space-grotesk)] text-xl font-bold">
+              <h3 className="mb-2 font-[family-name:var(--font-manrope)] text-xl font-bold">
                 {education.degree}
               </h3>
               <p className="text-primary mb-2 font-medium">
@@ -56,7 +56,7 @@ export default function Education() {
 
         {/* Beyond Code Card */}
         <Card>
-          <h3 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-lg font-bold">
+          <h3 className="mb-4 font-[family-name:var(--font-manrope)] text-lg font-bold">
             Beyond Code
           </h3>
           <div className="space-y-4">

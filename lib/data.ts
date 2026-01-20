@@ -212,26 +212,66 @@ export const projects: Project[] = [
   },
 ];
 
-export const skills = {
+export interface Skill {
+  name: string;
+  proficiency: 1 | 2 | 3 | 4 | 5;
+}
+
+export interface SkillCategory {
+  title: string;
+  items: Skill[];
+}
+
+export const skills: Record<string, SkillCategory> = {
   frontend: {
     title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    items: [
+      { name: "React", proficiency: 5 },
+      { name: "Next.js", proficiency: 5 },
+      { name: "TypeScript", proficiency: 5 },
+      { name: "Tailwind CSS", proficiency: 5 },
+      { name: "Framer Motion", proficiency: 4 },
+    ],
   },
   backend: {
     title: "Backend",
-    items: ["Node.js", "NestJS", "Express", "REST APIs", "GraphQL"],
+    items: [
+      { name: "Node.js", proficiency: 5 },
+      { name: "NestJS", proficiency: 4 },
+      { name: "Express", proficiency: 4 },
+      { name: "REST APIs", proficiency: 5 },
+      { name: "GraphQL", proficiency: 3 },
+    ],
   },
   databases: {
     title: "Databases",
-    items: ["PostgreSQL", "MySQL", "DynamoDB", "T-SQL", "Redis"],
+    items: [
+      { name: "PostgreSQL", proficiency: 4 },
+      { name: "MySQL", proficiency: 4 },
+      { name: "DynamoDB", proficiency: 3 },
+      { name: "T-SQL", proficiency: 3 },
+      { name: "Redis", proficiency: 3 },
+    ],
   },
   devops: {
     title: "Cloud & DevOps",
-    items: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Vercel"],
+    items: [
+      { name: "AWS", proficiency: 4 },
+      { name: "Docker", proficiency: 4 },
+      { name: "Kubernetes", proficiency: 3 },
+      { name: "GitHub Actions", proficiency: 4 },
+      { name: "Vercel", proficiency: 5 },
+    ],
   },
   tools: {
     title: "Tools & Other",
-    items: ["Git", "Claude Code", "ECharts", "Jest", "Splunk"],
+    items: [
+      { name: "Git", proficiency: 5 },
+      { name: "Claude Code", proficiency: 5 },
+      { name: "ECharts", proficiency: 4 },
+      { name: "Jest", proficiency: 4 },
+      { name: "Splunk", proficiency: 3 },
+    ],
   },
 };
 

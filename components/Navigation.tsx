@@ -16,7 +16,6 @@ export default function Navigation() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   // Scroll progress
   const { scrollYProgress } = useScroll();
@@ -126,7 +125,7 @@ export default function Navigation() {
                 {/* Logo/Name */}
                 <motion.button
                   onClick={scrollToTop}
-                  className="font-[family-name:var(--font-space-grotesk)] text-lg font-bold"
+                  className="font-[family-name:var(--font-manrope)] text-lg font-bold"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -136,14 +135,16 @@ export default function Navigation() {
                 {/* Desktop Navigation */}
                 <div className="hidden items-center gap-1 md:flex">
                   {navItems.map(({ id, label }) => (
-                    <button
+                    <motion.button
                       key={id}
                       onClick={() => scrollToSection(id)}
-                      className={`relative rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
+                      className={`group relative rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-200 ${
                         activeSection === id
                           ? "text-foreground"
                           : "text-foreground-muted hover:text-foreground"
                       }`}
+                      whileHover="hover"
+                      initial="initial"
                     >
                       {activeSection === id && (
                         <motion.span
@@ -157,7 +158,18 @@ export default function Navigation() {
                         />
                       )}
                       <span className="relative z-10">{label}</span>
-                    </button>
+                      {/* Hover underline */}
+                      {activeSection !== id && (
+                        <motion.span
+                          className="bg-primary absolute right-3 bottom-1 left-3 h-0.5 origin-left"
+                          variants={{
+                            initial: { scaleX: 0 },
+                            hover: { scaleX: 1 },
+                          }}
+                          transition={{ duration: 0.3, ease: "easeOut" }}
+                        />
+                      )}
+                    </motion.button>
                   ))}
                 </div>
 

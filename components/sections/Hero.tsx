@@ -1,10 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Download } from "lucide-react";
 import Button from "@/components/ui/Button";
 import HeroVisual from "@/components/HeroVisual";
 import { personalInfo } from "@/lib/data";
+
+const heroMetrics = [
+  { value: "92%", label: "Bundle Reduction" },
+  { value: "451", label: "PRs Merged" },
+  { value: "1", label: "Intern Mentored" },
+];
 
 export default function Hero() {
   return (
@@ -36,7 +42,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-4 font-[family-name:var(--font-space-grotesk)] text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+              className="mb-4 font-[family-name:var(--font-manrope)] text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             >
               <span className="gradient-text text-glow">
                 {personalInfo.name.split(" ")[0]}
@@ -77,6 +83,34 @@ export default function Hero() {
               >
                 Get in Touch
               </Button>
+              <Button
+                href="/RESUME_2026.pdf"
+                variant="ghost"
+                size="lg"
+                external
+              >
+                <Download className="h-4 w-4" />
+                Resume
+              </Button>
+            </motion.div>
+
+            {/* Impact Metrics Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="mb-8 flex flex-wrap justify-center gap-8 lg:justify-start"
+            >
+              {heroMetrics.map((metric) => (
+                <div key={metric.label} className="text-center lg:text-left">
+                  <div className="gradient-text text-2xl font-bold">
+                    {metric.value}
+                  </div>
+                  <div className="text-foreground-muted text-xs tracking-wider uppercase">
+                    {metric.label}
+                  </div>
+                </div>
+              ))}
             </motion.div>
 
             {/* Social Links */}
@@ -86,31 +120,40 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex items-center gap-5"
             >
-              <a
+              <motion.a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground-muted hover:text-primary transition-colors duration-300"
                 aria-label="GitHub"
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Github className="h-5 w-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground-muted hover:text-primary transition-colors duration-300"
                 aria-label="LinkedIn"
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={`mailto:${personalInfo.email}`}
                 className="text-foreground-muted hover:text-primary transition-colors duration-300"
                 aria-label="Email"
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Mail className="h-5 w-5" />
-              </a>
+              </motion.a>
               <span className="text-foreground-muted/30">·</span>
               <span className="text-foreground-muted text-sm">
                 {personalInfo.email}
@@ -137,12 +180,21 @@ export default function Hero() {
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ArrowDown className="text-foreground-muted/30 h-5 w-5" />
-        </motion.div>
+        <div className="relative">
+          {/* Pulsing ring */}
+          <motion.div
+            className="border-primary/30 absolute inset-0 rounded-full border-2"
+            animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+          />
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="bg-card-border/50 relative rounded-full p-2"
+          >
+            <ArrowDown className="text-foreground-muted/50 h-5 w-5" />
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

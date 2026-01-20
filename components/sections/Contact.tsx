@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, MapPin, ArrowUpRight } from "lucide-react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  MapPin,
+  ArrowUpRight,
+  FileText,
+} from "lucide-react";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 import { personalInfo } from "@/lib/data";
@@ -18,7 +25,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold md:text-4xl">
+          <h2 className="mb-4 font-[family-name:var(--font-manrope)] text-3xl font-bold md:text-4xl">
             <span className="gradient-text">Let&apos;s Work Together</span>
           </h2>
           <p className="text-foreground-muted mx-auto mb-8 max-w-xl text-lg">
@@ -44,6 +51,10 @@ export default function Contact() {
               <Linkedin className="h-5 w-5" />
               Connect on LinkedIn
               <ArrowUpRight className="h-4 w-4" />
+            </Button>
+            <Button href="/RESUME_2026.pdf" variant="ghost" size="lg" external>
+              <FileText className="h-5 w-5" />
+              Download Resume
             </Button>
           </div>
 

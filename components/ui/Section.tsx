@@ -29,7 +29,7 @@ export default function Section({
             className="mb-12 md:mb-16"
           >
             {title && (
-              <h2 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-3xl font-bold md:text-4xl">
+              <h2 className="mb-4 font-[family-name:var(--font-manrope)] text-3xl font-bold md:text-4xl">
                 <span className="gradient-text">{title}</span>
               </h2>
             )}

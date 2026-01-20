@@ -49,7 +49,7 @@ export default function Experience() {
                   <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                     <div className="flex-1">
                       <div className="mb-2 flex items-center gap-3">
-                        <h3 className="font-[family-name:var(--font-space-grotesk)] text-xl font-bold md:text-2xl">
+                        <h3 className="font-[family-name:var(--font-manrope)] text-xl font-bold md:text-2xl">
                           {job.role}
                         </h3>
                         {job.isFeatured && (
