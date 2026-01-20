@@ -8,6 +8,26 @@ import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import { experience } from "@/lib/data";
 
+// Compute duration from start date to now
+function computeDuration(startDate: string): string {
+  const start = new Date(startDate);
+  const now = new Date();
+
+  let years = now.getFullYear() - start.getFullYear();
+  let months = now.getMonth() - start.getMonth();
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const parts: string[] = [];
+  if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
+  if (months > 0) parts.push(`${months} mo`);
+
+  return parts.join(" ") || "< 1 mo";
+}
+
 // Parse **bold** markdown syntax
 function parseHighlight(text: string): React.ReactNode[] {
   const result: React.ReactNode[] = [];
@@ -110,7 +130,11 @@ export default function Experience() {
                         )}
                         <span className="bg-primary/10 text-primary rounded-md px-2 py-0.5 font-medium">
                           {job.internPeriod ? "Full-Time: " : ""}
-                          {job.period} ({job.duration})
+                          {job.period} (
+                          {job.startDate
+                            ? computeDuration(job.startDate)
+                            : job.duration}
+                          )
                         </span>
                       </div>
                     </div>

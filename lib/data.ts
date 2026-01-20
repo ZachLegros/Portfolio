@@ -29,7 +29,7 @@ export const experience = [
     company: "Trend Micro",
     role: "Software Developer",
     period: "Jan 2024 - Present",
-    duration: "2 yrs",
+    startDate: "2024-01-01",
     internPeriod: "May - Aug 2023",
     internDuration: "4 mo",
     location: "Ottawa",
