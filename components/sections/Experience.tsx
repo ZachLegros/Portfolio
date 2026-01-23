@@ -42,7 +42,7 @@ function parseHighlight(text: string): React.ReactNode[] {
     }
     // Add the bold text
     result.push(
-      <span key={match.index} className="text-foreground font-semibold">
+      <span key={match.index} className="font-semibold" style={{ color: 'var(--color-foreground)' }}>
         {match[1]}
       </span>
     );
