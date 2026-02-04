@@ -166,25 +166,6 @@ export default function Experience() {
                           {job.description}
                         </p>
 
-                        {/* Achievements with metrics */}
-                        {job.achievements && (
-                          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                            {job.achievements.map((achievement, i) => (
-                              <div
-                                key={i}
-                                className="border-card-border bg-card rounded-xl border p-4"
-                              >
-                                <div className="gradient-text mb-1 text-2xl font-bold">
-                                  {achievement.metric}
-                                </div>
-                                <div className="text-foreground-muted text-sm">
-                                  {achievement.description}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
                         {/* Highlights */}
                         <div>
                           <h4 className="text-foreground-muted mb-3 flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
