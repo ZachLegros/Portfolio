@@ -5,7 +5,7 @@
   --color-background: #030712;
   --color-background-secondary: #0f172a;
   --color-foreground: #f8fafc;
-  --color-foreground-muted: #64748b;
+  --color-foreground-muted: #94a3b8;
 
   /* Primary - Blue tones */
   --color-primary: #3b82f6;
@@ -30,7 +30,7 @@
   --color-background: #f8fafc;
   --color-background-secondary: #e2e8f0;
   --color-foreground: #0f172a;
-  --color-foreground-muted: #64748b;
+  --color-foreground-muted: #475569;
   --color-primary: #2563eb;
   --color-primary-light: #3b82f6;
   --color-accent: #d97706;
@@ -420,6 +420,7 @@ body,
 
 .terminal-code {
   color: #e2e8f0;
+  white-space: pre;
 }
 
 .terminal-cursor {

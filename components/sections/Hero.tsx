@@ -6,12 +6,6 @@ import Button from "@/components/ui/Button";
 import HeroVisual from "@/components/HeroVisual";
 import { personalInfo } from "@/lib/data";
 
-const heroMetrics = [
-  { value: "92%", label: "Bundle Reduction" },
-  { value: "451", label: "PRs Merged" },
-  { value: "1", label: "Intern Mentored" },
-];
-
 export default function Hero() {
   return (
     <section className="bg-background relative flex min-h-screen items-center overflow-hidden">
@@ -92,25 +86,6 @@ export default function Hero() {
                 <Download className="h-4 w-4" />
                 Resume
               </Button>
-            </motion.div>
-
-            {/* Impact Metrics Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="mb-8 flex flex-wrap justify-center gap-8 lg:justify-start"
-            >
-              {heroMetrics.map((metric) => (
-                <div key={metric.label} className="text-center lg:text-left">
-                  <div className="gradient-text text-2xl font-bold">
-                    {metric.value}
-                  </div>
-                  <div className="text-foreground-muted text-xs tracking-wider uppercase">
-                    {metric.label}
-                  </div>
-                </div>
-              ))}
             </motion.div>
 
             {/* Social Links */}

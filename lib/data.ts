@@ -36,31 +36,18 @@ export const experience = [
     isFeatured: true,
     description:
       "Full-stack development for enterprise cloud security products, specializing in AI-powered threat detection and email protection systems.",
-    achievements: [
-      {
-        metric: "92%",
-        description: "Reduced Tonic UI bundle size (752KB → 61KB)",
-      },
-      {
-        metric: "451",
-        description: "PRs merged across 25+ repositories",
-      },
-      {
-        metric: "100+",
-        description: "Support cases triaged with Splunk & Kibana",
-      },
-    ],
     highlights: [
-      "**Claude Code + MCP servers** — Accelerated dev workflows: charting migration, encryption, **100+ case triages**",
-      "**92% bundle reduction** — Optimized **Tonic UI** open-source (752KB → 61KB) via **Vite** tree-shaking",
-      "**Correlated Intelligence** — AI threat detection frontend (**React**, **Zustand**) and APIs (**NestJS**)",
-      "**Threat protection** — **DLP**, **BEC**, malware, spam, quishing dashboards with **ECharts**",
-      "**Closed-loop Feedback** — Auto-remediation, quarantine, secure rendering with **DOMPurify**",
-      "**OAuth/SSO** — **JWT** refresh, multi-app auth, cross-service credential management",
-      "**Risk metrics** — **Azure Service Bus** queues, connection pooling, **Grafana** monitoring",
-      "**Email Banner** — **React** frontend + **NestJS** APIs with **T-SQL** stored procedures, **i18n**",
-      "**CI/CD** — **Docker**, **Kubernetes**, **GitHub Actions** across **25+ repos**",
-      "**Mentorship** — Guided UWaterloo intern on **React**, **NestJS**, debugging methodologies",
+      "Accelerated full-stack development with **Claude Code** and custom **MCP servers** (Atlassian, Figma): charting migration, encryption implementation, 100+ case triages, and daily debugging workflows.",
+      "Reduced base **Tonic UI** open-source bundle by **92%** (752KB → 61KB) via **Vite** build optimization, tree-shaking, and modularization.",
+      "Architected frontend (**React**, **TypeScript**, **Zustand**, **React Query**) and backend APIs (**NestJS**, **Node.js**) for **Correlated Intelligence**: AI-powered threat detection with custom signal conditions and anomaly detection.",
+      "Championed professional development and technical onboarding for a **University of Waterloo** intern; mentored on full-stack architecture, **NestJS** API design, and systematic troubleshooting within complex production environments.",
+      "Led AI-powered migration from **HighCharts** to **ECharts** for **Cloud Email and Collaboration Protection**, leveraging automated refactors to accelerate delivery.",
+      "Triaged 100+ technical support cases using **Splunk** log analysis, **ElasticSearch**/**Kibana** debugging, and **MySQL**/**T-SQL** queries.",
+      "Developed **Closed-loop Feedback** frontend and **REST APIs**: auto-remediation workflows, quarantine mitigation, and secure email rendering using **DOMPurify**.",
+      "Optimized risk metrics service (**Node.js**) with **Azure Service Bus** queue system, request timeouts, connection pooling, and **Grafana** monitoring for improved reliability.",
+      "Developed **Email Banner** frontend (**React**) and backend APIs (**NestJS**, **T-SQL** stored procedures) with multi-language template support and **i18n** integration.",
+      "Orchestrated a mission-critical encryption migration for secrets; utilized **AI-driven architectural planning** to deliver a seamless, opt-in transition with zero service disruption.",
+      "Deployed features via **Docker**, **Kubernetes**, **GitHub Actions** CI/CD pipelines across 25+ repositories.",
     ],
     technologies: [
       "React",
@@ -86,9 +73,9 @@ export const experience = [
     description:
       "Developed React components for RapidResponse supply chain management platform.",
     highlights: [
-      "**Dark Mode Epic** — Led implementation with **Styled-Components** and **MaterialUI**",
-      "**Custom ESLint plugin** — Built in **TypeScript** for code quality enforcement",
-      "**Parcel design system** — Created reusable **React** component library",
+      "Developed **React** components for RapidResponse and Parcel design system",
+      "Led **Dark Mode Epic** with **Styled-Components** and **MaterialUI**",
+      "Created custom **ESLint plugin** in **TypeScript**",
     ],
     technologies: [
       "React",
@@ -108,8 +95,8 @@ export const experience = [
     isFeatured: false,
     description: "Built web application for wishlist management startup.",
     highlights: [
-      "**React + Next.js** — Built responsive web app with **Chakra UI**",
-      "**OAuth + iOS API** — Integrated authentication and mobile sync",
+      "Built web app with **React**, **Next.js**, **Chakra UI**",
+      "Integrated **OAuth** and iOS API",
     ],
     technologies: ["React", "Next.js", "Chakra UI", "OAuth"],
   },
@@ -123,8 +110,8 @@ export const experience = [
     isFeatured: false,
     description: "Developed photonics analysis tools for optical systems.",
     highlights: [
-      "**Data analysis tools** — **NumPy**, **SciPy**, **Pandas** for photonics research",
-      "**Automation** — Optical power meter measurements with **Python**",
+      "Developed photonics analysis tools with **NumPy**, **SciPy**, **Pandas**",
+      "Automated optical power meter with **Python**",
     ],
     technologies: ["Python", "NumPy", "SciPy", "Pandas"],
   },

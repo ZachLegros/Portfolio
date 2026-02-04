@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
 import { skills, type Skill } from "@/lib/data";
+
+const CODING_START_YEAR = 2019;
 
 function ProficiencyDots({
   proficiency,
@@ -67,6 +69,10 @@ function SkillItem({ skill, delay }: { skill: Skill; delay: number }) {
 
 export default function Skills() {
   const categories = Object.entries(skills);
+  const yearsCoding = useMemo(
+    () => new Date().getFullYear() - CODING_START_YEAR,
+    []
+  );
 
   return (
     <Section
@@ -113,7 +119,9 @@ export default function Skills() {
       >
         <div className="grid gap-8 text-center md:grid-cols-3">
           <div>
-            <div className="gradient-text mb-2 text-3xl font-bold">5+</div>
+            <div className="gradient-text mb-2 text-3xl font-bold">
+              {yearsCoding}+
+            </div>
             <div className="text-foreground-muted">Years Coding</div>
           </div>
           <div>
